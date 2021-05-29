@@ -1,0 +1,170 @@
+from tkinter import Tk, Label, Button, Entry
+
+CANVAS_WIDTH = 350
+CANVES_HEIGHT = 350
+
+
+
+class MyGUI:
+    def __init__(self, master):
+        self.master = master
+        master.title("Calculations_GUI")
+        master.minsize(width=CANVAS_WIDTH, height=CANVES_HEIGHT)
+
+        self.mass_label = Label(master, text="WEIGHT:")
+        self.mass_label.grid(column=0, row=0)
+
+        self.lenght_label = Label(master, text="LENGTH:")
+        self.lenght_label.grid(column=0, row=4)
+
+        self.temperature_label = Label(master, text="TEMPERATURE")
+        self.temperature_label.grid(column=0, row=7)
+
+        self.label = Label(master, text="KG:")
+        self.label.grid(column=1, row=0)
+
+        self.entry_kilos = Entry(master, width=10)
+        self.entry_kilos.insert(0, 0)
+        self.entry_kilos.grid(column=2, row=0)
+
+        self.greet_button = Button(master, text="Convert to Slug", command=self.calcs_kilos_to_slugs)
+        self.greet_button.grid(column=3, row=0)
+
+        self.close_button = Button(master, text="Close", command=master.quit)
+        self.close_button.grid(column=1, row=10)
+
+        self.label_final = Label(master, text=0)
+        self.label_final.grid(column=4, row=0)
+
+        self.label_p = Label(master, text="KG:")
+        self.label_p.grid(column=1, row=1)
+
+        self.entry_lbs = Entry(master, width=10)
+        self.entry_lbs.grid(column=2, row=1)
+        self.entry_lbs.insert(0, 0)
+
+        self.convert_to_pounds = Button(master,text="Convert to LBS", command=self.calcs_kilos_to_LBS)
+        self.convert_to_pounds.grid(column=3, row=1)
+
+        self.label_result = Label(master, text=0)
+        self.label_result.grid(column=4, row=1)
+
+        self.label_km_to_miles = Label(master, text="KM:")
+        self.label_km_to_miles.grid(column=1, row= 4)
+
+        self.km_entry = Entry(master, width=10)
+        self.km_entry.grid(column=2, row=4)
+        self.km_entry.insert(0,0)
+
+        self.km_button = Button(master, text="Convert to Miles", command=self.km_to_miles)
+        self.km_button.grid(column=3, row=4)
+
+        self.label_resl = Label(master, text=0)
+        self.label_resl.grid(column= 4, row=4)
+
+        self.label_km_to_m = Label(master, text="KM:")
+        self.label_km_to_m.grid(column=1, row=5)
+
+        self.entry_km_to_m = Entry(master, width=10)
+        self.entry_km_to_m.grid(column=2, row=5)
+        self.entry_km_to_m.insert(0, 0)
+
+        self.button_km_tosm = Button(master, text="Conver to Meters", command=self.km_to_meters)
+        self.button_km_tosm.grid(column=3, row=5)
+
+        self.label_fnl_km_to_sm = Label(master, text=0)
+        self.label_fnl_km_to_sm.grid(column=4, row=5)
+
+        self.label_km_to_cm = Label(master, text="KM:")
+        self.label_km_to_cm.grid(column=1, row=6)
+
+        self.entry_km_to_cm = Entry(master, width=10)
+        self.entry_km_to_cm.grid(column=2, row=6)
+        self.entry_km_to_cm.insert(0, 0)
+
+        self.button_km_to_cm = Button(master, text="Convert to CM", command=self.km_to_cm)
+        self.button_km_to_cm.grid(column=3, row=6)
+
+        self.label_km_to_cm = Label(master, text=0)
+        self.label_km_to_cm.grid(column=4, row=6)
+
+        self.label_c_to_kelvin = Label(master, text="C")
+        self.label_c_to_kelvin.grid(column=1, row=7)
+
+        self.entry_c_kelvin = Entry(master, width=10)
+        self.entry_c_kelvin.grid(column=2, row=7)
+        self.entry_c_kelvin.insert(0, 0)
+
+        self.button_c_kelvin = Button(master, text="Convert to Kelvin", command=self.celsius_to_kelvin)
+        self.button_c_kelvin.grid(column=3, row=7)
+
+        self.label_c_to_kelvin_final = Label(master, text=0)
+        self.label_c_to_kelvin_final.grid(column=4, row=7)
+        #-------------------------------------------------------------#
+
+        self.labelc_to_fahrenheit = Label(master, text="C")
+        self.labelc_to_fahrenheit.grid(column=1, row=8)
+
+        self.entry_to_fahreinheit = Entry(master, width=10)
+        self.entry_to_fahreinheit.grid(column=2, row=8)
+        self.entry_to_fahreinheit.insert(0, 0)
+
+        self.entry_button_to_fahreingeit = Button(master, text="Convert to Farh", command=self.fahrenheit)
+        self.entry_button_to_fahreingeit.grid(column=3, row=8)
+
+        self.label_farh_final = Label(master, text=0)
+        self.label_farh_final.grid(column=4, row=8)
+
+
+
+    def greet(self):
+        print("Greetings!")
+
+    def calcs_kilos_to_slugs(self):
+        user_input = self.entry_kilos.get()
+        calculations = float(user_input) * 0.0685
+        self.label_final.config(text=round(calculations, 5))
+        return calculations
+
+    def calcs_kilos_to_LBS(self):
+        entry_kilos = self. entry_lbs.get()
+        calculationsss = float(entry_kilos) * 2.20462
+        self.label_result.config(text=round(calculationsss, 5))
+        return calculationsss
+
+    def km_to_miles(self):
+        user_km_entr7 = self.km_entry.get()
+        calc_km = float(user_km_entr7) * 0.621371
+        self.label_resl.config(text=round(calc_km, 5))
+        return calc_km
+
+    def km_to_meters(self):
+        entry_km_to_m = self.entry_km_to_m.get()
+        calc_m = float(entry_km_to_m) * 1000
+        self.label_fnl_km_to_sm.config(text=round(calc_m, 5))
+        return calc_m
+
+    def km_to_cm(self):
+        entry_km_to_cm = self.entry_km_to_cm.get()
+        calc_cm = float(entry_km_to_cm) * 100000
+        self.label_km_to_cm.config(text=round(calc_cm, 5))
+        return calc_cm
+
+    def celsius_to_kelvin(self):
+        entry_c_kelvin = self.entry_c_kelvin.get()
+        calc_kelvin = float(entry_c_kelvin) + 273.15
+        self.label_c_to_kelvin_final.config(text=round(calc_kelvin, 5))
+        return calc_kelvin
+
+    def fahrenheit(self):
+        entry_to_fahreinheit = self.entry_to_fahreinheit.get()
+        calc_farh = (float(entry_to_fahreinheit) * (9/5)) + 32
+        self.label_farh_final.config(text=round(calc_farh,5))
+        return calc_farh
+
+
+
+
+root = Tk()
+my_gui = MyGUI(root)
+root.mainloop()
